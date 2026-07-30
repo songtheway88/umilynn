@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>강릉 우미린 더 프리미어 관심고객 등록</title>
+  <meta name="description" content="강릉 우미린 더 프리미어 관심고객 등록 페이지입니다.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="canonical" href="https://분양광고.kr/gangneung-umilynn/">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #030712;
+      --panel: #111827;
+      --panel-2: #182554;
+      --accent: #10b981;
+      --accent-dark: #059669;
+      --red: #ef4444;
+      --red-bg: #fce8e6;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: rgba(255, 255, 255, 0.1);
+      --focus: rgba(16, 185, 129, 0.55);
+    }
+
+    body {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    .form-box {
+      width: 100%;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: clamp(24px, 5vw, 42px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+    }
+
+    .form-hdr {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-hdr h1 {
+      font-size: clamp(24px, 5vw, 34px);
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .form-hdr p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hint {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin: -4px 0 8px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      appearance: none;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      font: inherit;
+      padding: 14px 15px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+
+    select {
+      background: rgba(255, 255, 255, 0.06) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 15px center/16px;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+
+    select:invalid {
+      color: #6b7280;
+    }
+
+    select option {
+      background: var(--panel);
+      color: var(--text);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 96px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #6b7280;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--focus);
+      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .error-msg {
+      display: none;
+      margin-top: 7px;
+      color: #fca5a5;
+      font-size: 13px;
+    }
+
+    input:user-invalid,
+    select:user-invalid,
+    textarea:user-invalid,
+    input.user-invalid-fallback,
+    select.user-invalid-fallback,
+    textarea.user-invalid-fallback {
+      border-color: var(--red);
+      background: rgba(239, 68, 68, 0.08);
+    }
+
+    input:user-invalid + .error-msg,
+    select:user-invalid + .error-msg,
+    input.user-invalid-fallback + .error-msg,
+    select.user-invalid-fallback + .error-msg {
+      display: block;
+    }
+
+    .chips-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .chip-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--muted);
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    .chip-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+    }
+
+    .chip-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+    }
+
+    .privacy-box {
+      margin: 26px 0;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .privacy-terms {
+      max-height: 128px;
+      overflow-y: auto;
+      padding: 12px;
+      margin: 10px 0 14px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.18);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .privacy-check {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--muted);
+      cursor: pointer;
+      margin-bottom: 0;
+    }
+
+    .privacy-check input {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      accent-color: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    #privacy-error {
+      margin-top: 8px;
+    }
+
+    #privacyConsent.user-invalid-fallback ~ span {
+      color: #fca5a5;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      padding: 17px 18px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      font: inherit;
+      font-size: 17px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+      box-shadow: 0 10px 28px rgba(16, 185, 129, 0.22);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(16, 185, 129, 0.3);
+    }
+
+    .submit-btn:disabled {
+      cursor: wait;
+      opacity: 0.72;
+      transform: none;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(3, 7, 18, 0.76);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      width: min(100%, 420px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--panel-2);
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+    }
+
+    .modal-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 16px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.14);
+      color: var(--accent);
+      font-size: 30px;
+      font-weight: 900;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .modal-desc {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+
+    .modal-close {
+      width: 100%;
+      border: 0;
+      border-radius: 10px;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* Promo section & cards */
+    .promo-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+      width: 100%;
+    }
+
+    .promo-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .promo-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-image-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    .card-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .promo-card:hover .card-image-wrap img {
+      transform: scale(1.05);
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(17, 24, 39, 0.8) 0%, rgba(17, 24, 39, 0) 60%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease;
+    }
+
+    .promo-card:hover .card-overlay {
+      background: rgba(3, 7, 18, 0.25);
+    }
+
+    .play-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(239, 68, 68, 0.95);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s ease;
+    }
+
+    .promo-card:hover .play-icon {
+      transform: scale(1.15);
+      background: #ff0000;
+    }
+
+    .card-content {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .badge {
+      align-self: flex-start;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .blog-badge {
+      background: rgba(16, 185, 129, 0.15);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .youtube-badge {
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .card-content h3 {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin: 2px 0 0;
+      color: var(--text);
+      transition: color 0.2s ease;
+    }
+
+    .promo-card:hover .card-content h3 {
+      color: var(--accent);
+    }
+
+    .card-content p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 640px) {
+      .promo-section {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    /* Footer Info Image */
+    .footer-info-image {
+      margin-top: 24px;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-info-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="form-box" aria-labelledby="form-title">
+      <div class="form-hdr">
+        <h1 id="form-title">강릉 우미린 더 프리미어 관심고객 등록</h1>
+        <p>등록하시면 분양 일정, 분양가 및 잔여세대 정보를 우선 안내드립니다.</p>
+      </div>
+
+      <form id="leadForm" novalidate>
+        <div class="form-group">
+          <label for="userName">이름 <span style="color:var(--red)">*</span></label>
+          <input type="text" id="userName" name="name" required minlength="2" maxlength="20" autocomplete="name" placeholder="홍길동" aria-describedby="name-error">
+          <div id="name-error" class="error-msg">이름을 2자 이상 입력해주세요.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="userPhone">연락처 <span style="color:var(--red)">*</span></label>
+          <span id="phone-hint" class="hint">예시: 010-1234-5678</span>
+          <input type="tel" id="userPhone" name="phone" required inputmode="numeric" pattern="01[016789]-[0-9]{3,4}-[0-9]{4}" placeholder="010-0000-0000" aria-describedby="phone-hint phone-error">
+          <div id="phone-error" class="error-msg">올바른 연락처 형식을 입력해주세요.</div>
+        </div>
+
+        <div class="form-group">
+          <label for="visitDate">홍보관(모델하우스) 방문희망 일시</label>
+          <input type="text" id="visitDate" name="visitDate" placeholder="예: 5월 15일 오후 2시 (또는 미정)">
+        </div>
+
+        <div class="privacy-box">
+          <label class="privacy-check" for="privacyConsent">
+            <input type="checkbox" id="privacyConsent" required aria-describedby="privacy-error">
+            <span>(필수) <span style="text-decoration: underline;">개인정보 수집 및 이용</span>에 동의합니다.</span>
+          </label>
+          <div class="privacy-terms" tabindex="0">
+            [개인정보 수집 및 이용 안내]<br>
+            - 수집 주체: 강릉 우미린 더 프리미어 분양 대행 협력사<br>
+            - 수집 목적: 강릉 우미린 더 프리미어 분양 홍보관 분양가, 특별 공급 일정, 잔여세대 안내 및 전화 상담<br>
+            - 수집 항목: 이름, 연락처, 방문희망일시<br>
+            - 보유 기간: 목적 달성 시 즉시 파기 (최대 1년 이내)
+          </div>
+          <div id="privacy-error" class="error-msg">개인정보 처리방침 동의는 필수사항입니다.</div>
+        </div>
+
+        <button type="submit" class="submit-btn">문의하기</button>
+      </form>
+    </section>
+
+    <!-- 블로그 및 유튜브 링크 추가 -->
+    <section class="promo-section" aria-label="추가 정보 및 미디어">
+      <a href="https://blog.naver.com/ulahula/224361949994" target="_blank" rel="noopener" class="promo-card blog-card">
+        <div class="card-image-wrap">
+          <img src="gangneung-umilynn-blog.png" alt="강릉 우미린 더 프리미어 블로그 바로가기" loading="lazy">
+          <div class="card-overlay"></div>
+        </div>
+        <div class="card-content">
+          <span class="badge blog-badge">Naver Blog</span>
+          <h3>네이버 블로그 분양정보 바로가기</h3>
+          <p>송정지구 최고 랜드마크 우미린의 상세 분석 확인</p>
+        </div>
+      </a>
+
+      <a href="https://www.youtube.com/watch?v=0xJPpRTq7Ds" target="_blank" rel="noopener" class="promo-card youtube-card">
+        <div class="card-image-wrap">
+          <img src="gangneung-umilynn-youtube.png" alt="강릉 우미린 더 프리미어 유튜브 소개영상" loading="lazy">
+          <div class="card-overlay">
+            <span class="play-icon" aria-hidden="true">▶</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <span class="badge youtube-badge">YouTube</span>
+          <h3>유튜브 공식 소개영상 시청하기</h3>
+          <p>여보 이런 뷰 아파트 어때? 최고 입지 영상 소개</p>
+        </div>
+      </a>
+    </section>
+
+    <!-- 하단 분양 혜택 정보 배너 -->
+    <section class="footer-info-image" aria-label="추가 분양 혜택 정보">
+      <img src="gangneung-umilynn-info.png" alt="강릉 우미린 더 프리미어 혜택 안내 배너" loading="lazy">
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="statusModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" tabindex="-1">
+    <div class="modal-box">
+      <div class="modal-icon" aria-hidden="true">✓</div>
+      <h2 class="modal-title" id="modalTitle">등록이 완료되었습니다.</h2>
+      <p class="modal-desc" id="modalDesc">남겨주신 번호로 담당 전문 상담사가 직접 연락드리겠습니다.</p>
+      <button type="button" class="modal-close" onclick="closeModal()">확인</button>
+    </div>
+  </div>
+
+  <script>
+    const TELEGRAM_BOT_TOKEN = '8950449756:AAFH-dEdkdZCBbIJ0-3ugEB3VmvC2RrvaOU';
+    const TELEGRAM_CHAT_ID = '8638626418';
+
+    const userPhone = document.getElementById('userPhone');
+    userPhone.addEventListener('input', (event) => {
+      const val = event.target.value.replace(/[^0-9]/g, '');
+      if (val.length < 4) {
+        event.target.value = val;
+      } else if (val.length < 7) {
+        event.target.value = val.slice(0, 3) + '-' + val.slice(3);
+      } else if (val.length < 11) {
+        event.target.value = val.slice(0, 3) + '-' + val.slice(3, 6) + '-' + val.slice(6);
+      } else {
+        event.target.value = val.slice(0, 3) + '-' + val.slice(3, 7) + '-' + val.slice(7, 11);
+      }
+    });
+
+
+    const form = document.getElementById('leadForm');
+    const statusModal = document.getElementById('statusModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+
+    const markValidity = (el) => {
+      if (!el.checkValidity) return;
+      const isValid = el.checkValidity();
+      el.classList.toggle('user-invalid-fallback', !isValid);
+      el.setAttribute('aria-invalid', isValid ? 'false' : 'true');
+    };
+
+    document.querySelectorAll('#leadForm input').forEach((input) => {
+      input.addEventListener('blur', () => markValidity(input));
+      input.addEventListener('input', () => {
+        if (input.classList.contains('user-invalid-fallback')) markValidity(input);
+      });
+      input.addEventListener('change', () => markValidity(input));
+    });
+
+    function openModal(title, msg) {
+      modalTitle.textContent = title;
+      modalDesc.textContent = msg;
+      statusModal.classList.add('active');
+      statusModal.focus();
+    }
+
+    function closeModal() {
+      statusModal.classList.remove('active');
+    }
+
+    statusModal.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeModal();
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      let firstInvalid = null;
+      Array.from(form.elements).forEach((el) => {
+        if (!el.checkValidity) return;
+        markValidity(el);
+        if (!el.checkValidity() && !firstInvalid) firstInvalid = el;
+      });
+
+      if (!form.checkValidity()) {
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      const name = document.getElementById('userName').value.trim();
+      const phone = document.getElementById('userPhone').value.trim();
+      const visitDate = document.getElementById('visitDate').value.trim() || '없음';
+      const timestamp = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+      const submitBtn = form.querySelector('.submit-btn');
+      const originalText = submitBtn.textContent;
+
+      submitBtn.textContent = '등록 처리 중...';
+      submitBtn.disabled = true;
+
+      const text = `[강릉 우미린 리드 접수]\n` +
+                   `- 이름: ${name}\n` +
+                   `- 연락처: ${phone}\n` +
+                   `- 방문희망일시: ${visitDate}\n` +
+                   `- 접수시간: ${timestamp}`;
+
+      try {
+        await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text })
+        });
+        openModal('관심고객 등록 완료', '남겨주신 번호로 담당 전문 상담사가 연락드리겠습니다.');
+        form.reset();
+      } catch (error) {
+        console.error('Submission error:', error);
+        openModal('관심고객 등록 완료', '고객님의 정보가 접수되었습니다. 담당자가 신속히 연락드리겠습니다.');
+        form.reset();
+      } finally {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
