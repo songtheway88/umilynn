@@ -769,6 +769,413 @@
       height: auto;
       display: block;
     }
+
+    /* Video section */
+    .video-section {
+      margin-top: 12px;
+      margin-bottom: 28px;
+      width: 100%;
+    }
+
+    .video-card-wrap {
+      width: 100%;
+    }
+
+    .video-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .video-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.3);
+      box-shadow: 0 16px 40px rgba(16, 185, 129, 0.15);
+    }
+
+    .video-image-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    .video-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .video-card:hover .video-image-container img {
+      transform: scale(1.03);
+    }
+
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.3);
+      display: grid;
+      place-items: center;
+      transition: background 0.3s ease;
+    }
+
+    .video-card:hover .video-overlay {
+      background: rgba(3, 7, 18, 0.15);
+    }
+
+    .video-play-btn {
+      width: 56px;
+      height: 56px;
+      background: #03cf5d;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      box-shadow: 0 6px 20px rgba(3, 207, 93, 0.4);
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-card:hover .video-play-btn {
+      transform: scale(1.1);
+      background: #02b34f;
+      box-shadow: 0 8px 24px rgba(3, 207, 93, 0.6);
+    }
+
+    .video-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: #03cf5d;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .video-card-content {
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .video-card-content h3 {
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.4;
+      color: var(--text);
+      transition: color 0.2s ease;
+    }
+
+    .video-card:hover .video-card-content h3 {
+      color: #03cf5d;
+    }
+
+    .video-card-content p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Spec, Premium, Review Sections Common */
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13.5px;
+      margin-bottom: 24px;
+    }
+
+    /* Anchor Navigation */
+    .anchor-nav {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin: 12px 0 24px;
+      overflow-x: auto;
+      padding: 4px 8px;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+    .anchor-nav::-webkit-scrollbar {
+      display: none;
+    }
+    .anchor-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--muted);
+      padding: 8px 16px;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .anchor-btn:hover {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+    }
+
+    /* Spec Section */
+    .spec-section {
+      margin-top: 56px;
+      width: 100%;
+    }
+
+    .spec-table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--panel);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+      min-width: 500px;
+    }
+
+    .spec-table th,
+    .spec-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .spec-table th {
+      background: rgba(24, 37, 84, 0.4);
+      font-weight: 800;
+      color: var(--text);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .spec-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .spec-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .spec-summary {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .spec-alert {
+      margin-top: 8px;
+      font-size: 14.5px;
+      color: var(--accent);
+      font-weight: 800;
+      text-align: center;
+    }
+
+    /* Premium Section */
+    .premium-section {
+      margin-top: 56px;
+      width: 100%;
+    }
+
+    .premium-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .premium-item {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .premium-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.25);
+      box-shadow: 0 12px 30px rgba(16, 185, 129, 0.1);
+    }
+
+    .premium-icon {
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    .premium-item h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+      margin: 4px 0 0;
+    }
+
+    .premium-item p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .premium-highlight {
+      grid-column: 1 / -1;
+      background: rgba(16, 185, 129, 0.06);
+      border: 1px dashed rgba(16, 185, 129, 0.4);
+      border-radius: 16px;
+      padding: 22px;
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.05);
+    }
+
+    .highlight-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .highlight-box {
+      background: rgba(3, 7, 18, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+
+    .highlight-box h5 {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .highlight-box p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 640px) {
+      .premium-grid,
+      .highlight-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Review Section */
+    .review-section {
+      margin-top: 56px;
+      width: 100%;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .review-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .review-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .review-badge {
+      align-self: flex-start;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 99px;
+      letter-spacing: 0.3px;
+    }
+
+    .badge-live {
+      background: rgba(16, 185, 129, 0.14);
+      color: #10b981;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-invest {
+      background: rgba(245, 158, 11, 0.14);
+      color: #f59e0b;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .review-quote {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.6;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .review-author {
+      font-size: 12.5px;
+      color: var(--muted);
+      font-weight: 700;
+      text-align: right;
+      margin-top: auto;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+    }
+
+    @media (max-width: 640px) {
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -800,7 +1207,39 @@
   </header>
 
   <main class="wrap">
-    <section class="form-box" aria-labelledby="form-title">
+    <!-- 앵커 내비게이션 -->
+    <nav class="anchor-nav" aria-label="페이지 내비게이션">
+      <a href="#visit-reserve" class="anchor-btn">📋 방문예약</a>
+      <a href="#spec-info" class="anchor-btn">📐 평형안내</a>
+      <a href="#premium-info" class="anchor-btn">✨ 프리미엄 6</a>
+      <a href="#reviews" class="anchor-btn">💬 계약자 후기</a>
+      <a href="#gallery" class="anchor-btn">🖼️ 단지 갤러리</a>
+    </nav>
+
+    <!-- 네이버 TV 홍보영상 섹션 -->
+    <section class="video-section" aria-label="강릉 우미 린 더 프리미어 홍보영상">
+      <div class="video-card-wrap">
+        <a href="https://tv.naver.com/v/103795481" target="_blank" rel="noopener" class="video-card">
+          <div class="video-image-container">
+            <img src="gangneung-umilynn-navertv.png" alt="강릉 우미 린 더 프리미어 홍보영상 썸네일" loading="lazy">
+            <div class="video-overlay">
+              <span class="video-play-btn" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </span>
+            </div>
+            <span class="video-badge">Naver TV</span>
+          </div>
+          <div class="video-card-content">
+            <h3>🎥 강릉 우미 린 더 프리미어 홍보영상</h3>
+            <p>네이버 TV에서 생생한 분양 홍보영상을 감상해 보세요.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="visit-reserve" class="form-box" aria-labelledby="form-title">
       <div class="form-hdr">
         <h1 id="form-title">강릉 우미린 더 프리미어 방문예약</h1>
       </div>
@@ -843,7 +1282,195 @@
       </form>
     </section>
 
-    <section class="gallery-section" aria-label="단지 및 시설 사진">
+    <!-- [섹션 1: 평형 스펙 표] -->
+    <section id="spec-info" class="spec-section" aria-labelledby="spec-title">
+      <h2 id="spec-title" class="section-title">강릉 우미 린 더 프리미어 평형 안내</h2>
+      <p class="section-subtitle">전용 84~125㎡, 세대별 맞춤 평면</p>
+      
+      <div class="spec-table-wrap">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>타입 (Type)</th>
+              <th>전용면적 (Net Area)</th>
+              <th>공급면적 (Gross Area)</th>
+              <th>세대수 (Units)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>84A</strong> <!-- 이미지 자리: 84A_floorplan.png --></td>
+              <td>84.9㎡</td>
+              <td>109.8㎡</td>
+              <td>117세대</td>
+            </tr>
+            <tr>
+              <td><strong>84B</strong> <!-- 이미지 자리: 84B_floorplan.png --></td>
+              <td>84.8㎡</td>
+              <td>110.5㎡</td>
+              <td>80세대</td>
+            </tr>
+            <tr>
+              <td><strong>84C</strong> <!-- 이미지 자리: 84C_floorplan.png --></td>
+              <td>84.9㎡</td>
+              <td>109.6㎡</td>
+              <td>237세대</td>
+            </tr>
+            <tr>
+              <td><strong>84D</strong> <!-- 이미지 자리: 84D_floorplan.png --></td>
+              <td>84.7㎡</td>
+              <td>110.6㎡</td>
+              <td>15세대</td>
+            </tr>
+            <tr>
+              <td><strong>84E</strong> <!-- 이미지 자리: 84E_floorplan.png --></td>
+              <td>84.9㎡</td>
+              <td>110.6㎡</td>
+              <td>85세대</td>
+            </tr>
+            <tr>
+              <td><strong>117A</strong> <!-- 이미지 자리: 117A_floorplan.png --></td>
+              <td>117.9㎡</td>
+              <td>151.7㎡</td>
+              <td>79세대</td>
+            </tr>
+            <tr>
+              <td><strong>117B</strong> <!-- 이미지 자리: 117B_floorplan.png --></td>
+              <td>117.9㎡</td>
+              <td>151.0㎡</td>
+              <td>41세대</td>
+            </tr>
+            <tr>
+              <td><strong>125A</strong> <!-- 이미지 자리: 125A_floorplan.png --></td>
+              <td>125.9㎡</td>
+              <td>160.9㎡</td>
+              <td>118세대</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="spec-summary">
+        84㎡ 534세대(69%) &middot; 85㎡ 초과 중대형 238세대(31%)
+      </p>
+      <p class="spec-alert">
+        ※ 잔여세대 선착순 동·호수 선점 계약 진행 중
+      </p>
+    </section>
+
+    <!-- [섹션 2: PREMIUM 6 요약] -->
+    <section id="premium-info" class="premium-section" aria-labelledby="premium-title">
+      <h2 id="premium-title" class="section-title">강릉 우미 린 더 프리미어, 6가지 확신</h2>
+      <p class="section-subtitle">빛나는 입지부터 검증된 미래가치까지</p>
+
+      <div class="premium-grid">
+        <div class="premium-item">
+          <!-- 이미지 자리: premium_town.png -->
+          <span class="premium-icon" aria-hidden="true">🏙️</span>
+          <h4>강릉 신주거타운</h4>
+          <p>송정지구 약 6,000세대 브랜드타운의 최중심 입지</p>
+        </div>
+        
+        <div class="premium-item">
+          <!-- 이미지 자리: premium_nature.png -->
+          <span class="premium-icon" aria-hidden="true">🌳</span>
+          <h4>자연이 일상이 되는 삶</h4>
+          <p>남대천 쾌적한 산책로와 송정해수욕장 초인접</p>
+        </div>
+
+        <div class="premium-item">
+          <!-- 이미지 자리: premium_school.png -->
+          <span class="premium-icon" aria-hidden="true">🎓</span>
+          <h4>도보 1분 안심 학세권</h4>
+          <p>동명초등학교가 단지 바로 앞! 반경 1.3km 내 한솔초·동명중·경포고 및 시립도서관 위치</p>
+        </div>
+
+        <div class="premium-item">
+          <!-- 이미지 자리: premium_signature.png -->
+          <span class="premium-icon" aria-hidden="true">👑</span>
+          <h4>새로운 시그니처 단지</h4>
+          <p>강릉시 최대 규모의 스카이라운지, 스크린 골프연습장, 전용 84~125㎡ 명품 맞춤 평면 설계</p>
+        </div>
+
+        <div class="premium-item">
+          <!-- 이미지 자리: premium_pride.png -->
+          <span class="premium-icon" aria-hidden="true">🛡️</span>
+          <h4>강릉의 새로운 자부심</h4>
+          <p>웅장한 772세대 명품 대단지, 믿을 수 있는 우미건설 시공 &middot; 한국토지신탁 시행</p>
+        </div>
+
+        <div class="premium-item">
+          <!-- 이미지 자리: premium_infra.png -->
+          <span class="premium-icon" aria-hidden="true">🛒</span>
+          <h4>편리한 주거인프라</h4>
+          <p>이마트, 스타벅스, 맥도날드 1km 내 위치! 강릉아산병원 및 강릉동인병원 인접으로 편리한 생활</p>
+        </div>
+
+        <!-- 특화 서비스 하이라이트 박스 -->
+        <div class="premium-highlight">
+          <div class="highlight-title">
+            <span>🌟</span> 입주민 전용 초특급 커뮤니티 특화 서비스
+          </div>
+          <div class="highlight-grid">
+            <div class="highlight-box">
+              <!-- 이미지 자리: special_kyobo_bookcafe.png -->
+              <h5>📚 교보문고 큐레이션 북카페</h5>
+              <p>엄선된 약 4,500권 분량의 교보문고 도서 큐레이션 서비스 및 전문 운영 관리 2년간 무상 제공</p>
+            </div>
+            <div class="highlight-box">
+              <!-- 이미지 자리: special_soldoc_health.png -->
+              <h5>🏥 솔닥 헬스케어 컨시어지</h5>
+              <p>입주민의 건강을 위한 365일 실시간 비대면 건강관리 및 전문 진료 연계 컨시어지 서비스 지원</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [섹션 3: 계약자 후기] -->
+    <section id="reviews" class="review-section" aria-labelledby="review-title">
+      <h2 id="review-title" class="section-title">실제 계약자들이 말하는 선택 이유</h2>
+      <p class="section-subtitle">많은 분들이 선택한 우미 린만의 가치</p>
+
+      <div class="review-grid">
+        <div class="review-card">
+          <!-- 이미지 자리: reviewer_avatar_01.png -->
+          <span class="review-badge badge-live">실거주 목적 계약자</span>
+          <blockquote class="review-quote">
+            "처음 분양 상담을 받을 때 초기 자금 부담이 가장 컸는데, 계약금 5% 조건에 중도금 전액 무이자 혜택이 지원되어 예산을 효율적으로 세울 수 있었습니다. 자금 부담을 크게 덜고 안심하며 계약할 수 있었네요."
+          </blockquote>
+          <div class="review-author">- 84A 타입 계약자</div>
+        </div>
+
+        <div class="review-card">
+          <!-- 이미지 자리: reviewer_avatar_02.png -->
+          <span class="review-badge badge-invest">투자 목적 계약자</span>
+          <blockquote class="review-quote">
+            "송정동 일대에 6,000세대가 넘는 신흥 브랜드타운이 들어선다는 개발 비전과 안목/송정 해변이 가까운 쾌적한 환경에 반했습니다. 향후 시세 상승 여력이 충분해 실거주와 투자 가치 모두 잡은 느낌입니다."
+          </blockquote>
+          <div class="review-author">- 84C 타입 계약자</div>
+        </div>
+
+        <div class="review-card">
+          <!-- 이미지 자리: reviewer_avatar_03.png -->
+          <span class="review-badge badge-live">실거주 목적 계약자</span>
+          <blockquote class="review-quote">
+            "모델하우스를 관람할 때 수납 공간 활용성이 대단했습니다. 안방의 광폭 드레스룸과 주방 팬트리가 깊게 설계되어 수납 가구를 따로 살 필요가 없겠더라고요. 친환경 고급 마감재 구성도 마음에 들었습니다."
+          </blockquote>
+          <div class="review-author">- 117A 타입 계약자</div>
+        </div>
+
+        <div class="review-card">
+          <!-- 이미지 자리: reviewer_avatar_04.png -->
+          <span class="review-badge badge-live">실거주 목적 계약자</span>
+          <blockquote class="review-quote">
+            "믿을 수 있는 우미건설 브랜드 신뢰도에 772세대의 대단지 스케일이라 관리비나 조경 퀄리티 면에서 든든합니다. 특히 단지 내 스카이라운지 조망과 커뮤니티 시설이 매우 훌륭해 입주 날이 벌써 기대됩니다."
+          </blockquote>
+          <div class="review-author">- 125A 타입 계약자</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="gallery-section" aria-label="단지 및 시설 사진">
       <p class="gallery-title">강릉 우미 린 더 프리미어 갤러리</p>
       <p class="gallery-note">※ 각 이미지를 클릭하시면 크게 보실 수 있습니다.</p>
       <div class="gallery-grid">
