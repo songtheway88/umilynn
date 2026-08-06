@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://분양광고.kr/gangneung-umilynn/sitemap.xml
