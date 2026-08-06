@@ -12,9 +12,10 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="naver-site-verification" content="56911244848d057553f0d938afbde6df54efd9b5" />
 
-  <title>강릉 우미린 더 프리미어 방문예약</title>
-  <meta name="description" content="강릉 우미린 더 프리미어 방문예약 페이지입니다.">
+  <title>「강릉 우미린 더 프리미어」 잔여세대 안내</title>
+  <meta name="description" content="강릉 우미린 더 프리미어 | (대표)☎010-6592-1910 | 강원특별자치도 강릉시 송정동 1048번지 일원 | 강릉 우미린 더 프리미어 모델하우스 | 지하2층~지상21층 APT 10개동 772세대 | 강릉 우미린 더 프리미어">
   <meta name="robots" content="noindex, nofollow">
 
   <link rel="canonical" href="https://분양광고.kr/gangneung-umilynn/">
@@ -1176,9 +1177,42 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Quick Menu Styling */
+    .quick-menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      margin-bottom: 12px;
+    }
+    .quick-menu a {
+      color: #1a0dab;
+      font-weight: 600;
+      margin-right: 8px;
+      text-decoration: none;
+    }
+    .quick-menu a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
+  <header style="background: #ffffff; color: #111827; padding: 20px 16px; text-align: center; border-bottom: 1px solid #e5e7eb;">
+    <div style="max-width: 720px; margin: 0 auto;">
+      <h1 style="font-size: clamp(20px, 5vw, 28px); font-weight: 800; color: #111827; margin-bottom: 8px; line-height: 1.2;">강릉 우미린 더 프리미어</h1>
+      <nav class="quick-menu">
+        <a href="#overview">사업개요</a>
+        <a href="#layout">단지배치도</a>
+        <a href="#type">타입안내</a>
+        <a href="#location">입지환경</a>
+        <a href="/gangneung-umilynn/secondhouse">강릉세컨하우스</a>
+        <a href="#lead">관심고객등록</a>
+      </nav>
+      <p style="font-size: 13.5px; font-weight: 800; color: #1f2937; line-height: 1.6; word-break: keep-all; margin: 0;">
+        강릉 우미린 더 프리미어 | (대표)☎010-6592-1910 | 강원특별자치도 강릉시 송정동 1048번지 일원 | 강릉 우미린 더 프리미어 모델하우스 | 지하2층~지상21층 APT 10개동 772세대 | 강릉 우미린 더 프리미어
+      </p>
+    </div>
+  </header>
+
   <header class="hero">
     <div class="hero-inner">
       <span class="hero-eyebrow">강릉 송정지구 6,000세대</span>
@@ -1240,6 +1274,7 @@
     </section>
 
     <section id="visit-reserve" class="form-box" aria-labelledby="form-title">
+      <div id="lead"></div>
       <div class="form-hdr">
         <h1 id="form-title">강릉 우미린 더 프리미어 방문예약</h1>
       </div>
@@ -1284,6 +1319,7 @@
 
     <!-- [섹션 1: 평형 스펙 표] -->
     <section id="spec-info" class="spec-section" aria-labelledby="spec-title">
+      <div id="type"></div>
       <h2 id="spec-title" class="section-title">강릉 우미 린 더 프리미어 평형 안내</h2>
       <p class="section-subtitle">전용 84~125㎡, 세대별 맞춤 평면</p>
       
@@ -1359,6 +1395,7 @@
 
     <!-- [섹션 2: PREMIUM 6 요약] -->
     <section id="premium-info" class="premium-section" aria-labelledby="premium-title">
+      <div id="overview"></div>
       <h2 id="premium-title" class="section-title">강릉 우미 린 더 프리미어, 6가지 확신</h2>
       <p class="section-subtitle">빛나는 입지부터 검증된 미래가치까지</p>
 
@@ -1471,6 +1508,7 @@
     </section>
 
     <section id="gallery" class="gallery-section" aria-label="단지 및 시설 사진">
+      <div id="layout"></div>
       <p class="gallery-title">강릉 우미 린 더 프리미어 갤러리</p>
       <p class="gallery-note">※ 각 이미지를 클릭하시면 크게 보실 수 있습니다.</p>
       <div class="gallery-grid">
@@ -1490,7 +1528,7 @@
           <img src="img/sky-lounge.png" alt="스카이라운지" loading="lazy">
           <div class="gallery-caption">🌅 스카이라운지</div>
         </a>
-        <a href="img/location-map.png" target="_blank" class="gallery-item">
+        <a href="img/location-map.png" target="_blank" class="gallery-item" id="location">
           <img src="img/location-map.png" alt="위치 안내도" loading="lazy">
           <div class="gallery-caption">🗺️ 위치 안내도</div>
         </a>
