@@ -1200,6 +1200,21 @@
       text-decoration: none;
     }
     .quick-menu a:hover { text-decoration: underline; }
+
+    /* Video Grid Styling */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      width: 100%;
+      margin-top: 20px;
+    }
+    @media (max-width: 640px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1398,6 +1413,56 @@
       <p class="spec-alert">
         ※ 잔여세대 선착순 동·호수 선점 계약 진행 중
       </p>
+    </section>
+
+    <!-- [신규 섹션: 유니트 랜선투어] -->
+    <section id="unit-tour" class="video-section" aria-labelledby="tour-title" style="margin-top: 56px; width: 100%;">
+      <h2 id="tour-title" class="section-title">강릉 우미 린 더 프리미어 유니트 랜선투어</h2>
+      <p class="section-subtitle">Naver TV로 생생하게 만나는 명품 공간 설계</p>
+      
+      <div class="video-grid">
+        <!-- 84C 비디오 카드 -->
+        <div class="video-card-wrap">
+          <a href="https://tv.naver.com/h/103805718" target="_blank" rel="noopener" class="video-card" style="height: 100%;">
+            <div class="video-image-container">
+              <img src="gangneung-umilynn-navertv-84c.png" alt="84C타입 유니트 랜선투어 썸네일" loading="lazy">
+              <div class="video-overlay">
+                <span class="video-play-btn" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </span>
+              </div>
+              <span class="video-badge">34평형 84C</span>
+            </div>
+            <div class="video-card-content">
+              <h3>🎥 84C타입 유니트 랜선투어</h3>
+              <p>실용성과 쾌적함을 극대화한 전용 84C타입의 혁신 설계를 영상으로 확인해 보세요.</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- 125A 비디오 카드 -->
+        <div class="video-card-wrap">
+          <a href="https://tv.naver.com/h/103805611" target="_blank" rel="noopener" class="video-card" style="height: 100%;">
+            <div class="video-image-container">
+              <img src="gangneung-umilynn-navertv-125a.png" alt="125A타입 유니트 랜선투어 썸네일" loading="lazy">
+              <div class="video-overlay">
+                <span class="video-play-btn" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </span>
+              </div>
+              <span class="video-badge">48평형 125A</span>
+            </div>
+            <div class="video-card-content">
+              <h3>🎥 125A타입 유니트 랜선투어</h3>
+              <p>품격 높은 공간감과 차별화된 고급 인테리어의 전용 125A타입 디자인을 감상해 보세요.</p>
+            </div>
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- [섹션 2: PREMIUM 6 요약] -->
