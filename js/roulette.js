@@ -35,6 +35,7 @@
 
   overlay.innerHTML = `
     <div class="roulette-modal">
+      <button type="button" class="roulette-close-btn" aria-label="닫기">&times;</button>
       <div class="roulette-header">
         <div class="limited-event">LIMITED EVENT</div>
         <div class="divider">
@@ -43,7 +44,6 @@
           <div class="divider-line"></div>
         </div>
         <div class="subtitle">룰렛을 돌리고 특별 혜택을 확인해보세요</div>
-        <button type="button" class="roulette-close-btn" aria-label="닫기">&times;</button>
       </div>
       <div class="roulette-body">
         <!-- Roulette Game Screen -->
@@ -56,7 +56,8 @@
         <!-- Winning Result Screen -->
         <div class="roulette-result-container">
           <img src="${prizeImgSrc}" alt="관심고객 등록 이벤트 3만원 상품권 당첨!" class="roulette-prize-img">
-          <button type="button" class="roulette-cta-btn">지금 관심고객 등록하러 가기</button>
+          <button type="button" class="roulette-cta-btn">방문예약하기</button>
+          <button type="button" class="roulette-home-btn">홈페이지 보러가기</button>
         </div>
       </div>
       <div class="roulette-footer">
@@ -228,6 +229,10 @@
 
   overlay.querySelector('.roulette-close-btn').addEventListener('click', closePopup);
   overlay.querySelector('.close-btn').addEventListener('click', closePopup);
+  const homeBtn = overlay.querySelector('.roulette-home-btn');
+  if (homeBtn) {
+    homeBtn.addEventListener('click', closePopup);
+  }
 
   overlay.querySelector('.hide-today-btn').addEventListener('click', function() {
     // Set cookie/localStorage to expire at today's midnight (23:59:59)
