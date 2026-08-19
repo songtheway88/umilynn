@@ -650,10 +650,13 @@
     /* Promo section & cards */
     .promo-section {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
       gap: 20px;
       margin-top: 24px;
       width: 100%;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .promo-card {
@@ -707,24 +710,6 @@
       background: rgba(3, 7, 18, 0.25);
     }
 
-    .play-icon {
-      width: 48px;
-      height: 48px;
-      background: rgba(239, 68, 68, 0.95);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      font-size: 18px;
-      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
-      transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.3s ease;
-    }
-
-    .promo-card:hover .play-icon {
-      transform: scale(1.15);
-      background: #ff0000;
-    }
-
     .card-content {
       padding: 18px;
       display: flex;
@@ -746,12 +731,6 @@
       background: rgba(16, 185, 129, 0.15);
       color: #10b981;
       border: 1px solid rgba(16, 185, 129, 0.3);
-    }
-
-    .youtube-badge {
-      background: rgba(239, 68, 68, 0.15);
-      color: #ef4444;
-      border: 1px solid rgba(239, 68, 68, 0.3);
     }
 
     .card-content h3 {
@@ -776,7 +755,7 @@
 
     @media (max-width: 640px) {
       .promo-section {
-        grid-template-columns: 1fr;
+        max-width: none;
         gap: 16px;
       }
     }
@@ -839,6 +818,14 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .video-image-container iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     .video-card:hover .video-image-container img {
@@ -1294,23 +1281,15 @@
     <!-- 네이버 TV 홍보영상 섹션 -->
     <section class="video-section" aria-label="강릉 우미 린 더 프리미어 홍보영상">
       <div class="video-card-wrap">
-        <a href="https://tv.naver.com/v/103795481" target="_blank" rel="noopener" class="video-card">
+        <div class="video-card">
           <div class="video-image-container">
-            <img src="gangneung-umilynn-navertv.png" alt="강릉 우미 린 더 프리미어 홍보영상 썸네일" loading="lazy">
-            <div class="video-overlay">
-              <span class="video-play-btn" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </span>
-            </div>
-            <span class="video-badge">Naver TV</span>
+            <iframe src="https://tv.naver.com/embed/104418754" title="강릉 우미 린 더 프리미어 홍보영상" allow="autoplay; encrypted-media; fullscreen" allowfullscreen loading="lazy"></iframe>
           </div>
           <div class="video-card-content">
             <h3>🎥 강릉 우미 린 더 프리미어 홍보영상</h3>
             <p>네이버 TV에서 생생한 분양 홍보영상을 감상해 보세요.</p>
           </div>
-        </a>
+        </div>
       </div>
     </section>
 
@@ -1641,20 +1620,6 @@
           <span class="badge blog-badge">Naver Blog</span>
           <h3>네이버 블로그 분양정보 바로가기</h3>
           <p>송정지구 최고 랜드마크 우미린의 상세 분석 확인</p>
-        </div>
-      </a>
-
-      <a href="https://www.youtube.com/watch?v=0xJPpRTq7Ds" target="_blank" rel="noopener" class="promo-card youtube-card">
-        <div class="card-image-wrap">
-          <img src="gangneung-umilynn-youtube.png" alt="강릉 우미린 더 프리미어 유튜브 소개영상" loading="lazy">
-          <div class="card-overlay">
-            <span class="play-icon" aria-hidden="true">▶</span>
-          </div>
-        </div>
-        <div class="card-content">
-          <span class="badge youtube-badge">YouTube</span>
-          <h3>유튜브 공식 소개영상 시청하기</h3>
-          <p>여보 이런 뷰 아파트 어때? 최고 입지 영상 소개</p>
         </div>
       </a>
     </section>
