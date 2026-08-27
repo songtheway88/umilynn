@@ -1,6 +1,6 @@
 // api/submit.js
 
-async function sendTelegramDirect({ name, phone, visitDate }) {
+async function sendTelegramDirect({ name, phone, message }) {
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
 
@@ -11,10 +11,10 @@ async function sendTelegramDirect({ name, phone, visitDate }) {
 
   const timestamp = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
   const text =
-    `[강릉 우미린 방문예약 접수]\n` +
+    `[강릉 우미린 문의 접수]\n` +
     `- 이름: ${name}\n` +
     `- 연락처: ${phone}\n` +
-    `- 방문희망일시: ${visitDate || '없음'}\n` +
+    `- 문의사항: ${message || '없음'}\n` +
     `- 접수시간: ${timestamp}`;
 
   const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
@@ -39,7 +39,7 @@ async function sendTelegramDirect({ name, phone, visitDate }) {
   );
 }
 
-async function sendToDashboard({ name, phone, visitDate }) {
+async function sendToDashboard({ name, phone, message }) {
   const dashboardUrl = process.env.DASHBOARD_INTAKE_URL; // https://bunyang-dashboard.vercel.app/api/leads/intake
   const apiKey = process.env.DASHBOARD_API_KEY; // 강릉 우미 린 더 프리미어 현장 전용 API 키
 
@@ -60,7 +60,7 @@ async function sendToDashboard({ name, phone, visitDate }) {
       body: JSON.stringify({
         name,
         phone,
-        message: visitDate ? `[방문희망: ${visitDate}]` : null,
+        message: message && message !== '없음' ? message : null,
       }),
       signal: controller.signal,
     });
@@ -81,17 +81,17 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, phone, visitDate } = req.body;
+    const { name, phone, message } = req.body;
 
     if (!name || !phone) {
       return res.status(400).json({ error: '이름과 연락처는 필수입니다.' });
     }
 
     try {
-      await sendToDashboard({ name, phone, visitDate });
+      await sendToDashboard({ name, phone, message });
     } catch (dashboardErr) {
       console.error('Dashboard intake error, falling back to direct Telegram send:', dashboardErr);
-      await sendTelegramDirect({ name, phone, visitDate });
+      await sendTelegramDirect({ name, phone, message });
     }
 
     return res.status(200).json({ success: true });

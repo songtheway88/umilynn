@@ -45,11 +45,11 @@
   <link rel="canonical" href="https://aparth0me.shop/">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <!-- Roulette Event Popup -->
-  <link rel="stylesheet" href="css/roulette.css">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
 
     :root {
       --bg: #030712;
@@ -71,6 +71,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      padding-bottom: 82px;
     }
 
     .wrap {
@@ -216,31 +217,33 @@
     }
 
     .hero-faq-list li a::after {
-      content: '\1F4DE';
+      content: '\1F4DD';
       font-size: 14px;
       opacity: 0.85;
       flex: 0 0 auto;
     }
 
-    .hero-cta {
-      display: inline-flex;
+    .hero-inquiry-btn {
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
+      width: 100%;
+      margin-top: 14px;
       text-decoration: none;
-      padding: 18px 34px;
-      border-radius: 14px;
+      border-radius: 12px;
+      padding: 15px 18px;
       background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       color: #fff;
       font-weight: 900;
-      font-size: 18px;
-      box-shadow: 0 14px 34px rgba(16, 185, 129, 0.35);
+      font-size: 16px;
+      box-shadow: 0 10px 28px rgba(16, 185, 129, 0.28);
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .hero-cta:hover {
+    .hero-inquiry-btn:hover {
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(16, 185, 129, 0.42);
+      box-shadow: 0 14px 34px rgba(16, 185, 129, 0.35);
     }
 
     @media (max-width: 480px) {
@@ -585,6 +588,52 @@
       box-shadow: 0 14px 34px rgba(217, 119, 6, 0.3);
     }
 
+    /* Floating CTA Bar */
+    .floating-cta {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 60;
+      display: flex;
+      gap: 10px;
+      padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+      background: rgba(3, 7, 18, 0.92);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .floating-cta a {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 900;
+      font-size: 15.5px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .floating-cta a:active {
+      transform: scale(0.97);
+    }
+
+    .floating-cta .floating-inquiry-btn {
+      padding: 15px 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(16, 185, 129, 0.3);
+    }
+
+    .floating-cta .call-btn {
+      width: auto;
+      margin-top: 0;
+      padding: 15px 10px;
+    }
+
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -774,6 +823,52 @@
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    /* Visit Reservation CTA */
+    .visit-cta-section {
+      margin-top: 56px;
+      padding: 36px 24px;
+      text-align: center;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    .visit-cta-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .visit-cta-sub {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .visit-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 360px;
+      text-decoration: none;
+      padding: 18px 24px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #fff;
+      font-weight: 900;
+      font-size: 17px;
+      box-shadow: 0 10px 28px rgba(16, 185, 129, 0.28);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .visit-cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(16, 185, 129, 0.35);
     }
 
     /* Video section */
@@ -1255,48 +1350,33 @@
       </div>
 
       <div class="hero-faq">
-        <p class="hero-faq-title">궁금한 점, 편하게 전화 주세요</p>
-        <p class="hero-faq-sub">전문 상담사가 직접, 솔직하게 답변드립니다</p>
+        <p class="hero-faq-title">궁금한 점, 편하게 남겨주세요</p>
+        <p class="hero-faq-sub">번호를 남기시면 전문 상담사가 직접 연락드립니다</p>
         <ul class="hero-faq-list">
-          <li><a href="tel:1551-6131">전매제한은 없나요?</a></li>
-          <li><a href="tel:1551-6131">제 자금으로 가능할까요?</a></li>
-          <li><a href="tel:1551-6131">현재 남은 로얄층이 있을까요?</a></li>
+          <li><a href="#quick-inquiry">전매제한은 없나요?</a></li>
+          <li><a href="#quick-inquiry">제 자금으로 가능할까요?</a></li>
+          <li><a href="#quick-inquiry">현재 남은 로얄층이 있을까요?</a></li>
         </ul>
+        <a href="#quick-inquiry" class="hero-inquiry-btn">📝 바로 문의하기</a>
       </div>
-
-      <a href="tel:1551-6131" class="hero-cta">📞 바로 전화 문의</a>
     </div>
   </header>
 
   <main class="wrap">
     <!-- 앵커 내비게이션 -->
     <nav class="anchor-nav" aria-label="페이지 내비게이션">
-      <a href="#visit-reserve" class="anchor-btn">📋 방문예약</a>
+      <a href="#quick-inquiry" class="anchor-btn">📝 바로문의</a>
       <a href="#spec-info" class="anchor-btn">📐 평형안내</a>
       <a href="#premium-info" class="anchor-btn">✨ 프리미엄 6</a>
       <a href="#reviews" class="anchor-btn">💬 계약자 후기</a>
       <a href="#gallery" class="anchor-btn">🖼️ 단지 갤러리</a>
     </nav>
 
-    <!-- 네이버 TV 홍보영상 섹션 -->
-    <section class="video-section" aria-label="강릉 우미 린 더 프리미어 홍보영상">
-      <div class="video-card-wrap">
-        <div class="video-card">
-          <div class="video-image-container">
-            <iframe src="https://tv.naver.com/embed/104418754" title="강릉 우미 린 더 프리미어 홍보영상" allow="autoplay; encrypted-media; fullscreen" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <div class="video-card-content">
-            <h3>🎥 강릉 우미 린 더 프리미어 홍보영상</h3>
-            <p>네이버 TV에서 생생한 분양 홍보영상을 감상해 보세요.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="visit-reserve" class="form-box" aria-labelledby="form-title">
+    <section id="quick-inquiry" class="form-box" aria-labelledby="form-title">
       <div id="lead"></div>
       <div class="form-hdr">
-        <h2 id="form-title">강릉 우미린 더 프리미어 방문예약</h2>
+        <h2 id="form-title">강릉 우미린 더 프리미어 바로 문의하기</h2>
+        <p>이름과 연락처만 남기시면 담당 상담사가 빠르게 연락드립니다.</p>
       </div>
 
       <form id="leadForm" novalidate>
@@ -1314,8 +1394,8 @@
         </div>
 
         <div class="form-group">
-          <label for="visitDate">홍보관(모델하우스) 방문희망 일시</label>
-          <input type="text" id="visitDate" name="visitDate" placeholder="예: 5월 15일 오후 2시 (또는 미정)">
+          <label for="inquiryMessage">문의사항</label>
+          <textarea id="inquiryMessage" name="message" placeholder="궁금하신 점을 남겨주세요 (선택)"></textarea>
         </div>
 
         <div class="privacy-box">
@@ -1327,14 +1407,29 @@
             [개인정보 수집 및 이용 안내]<br>
             - 수집 주체: 강릉 우미린 더 프리미어 분양 대행 협력사<br>
             - 수집 목적: 강릉 우미린 더 프리미어 분양 홍보관 분양가, 특별 공급 일정, 잔여세대 안내 및 전화 상담<br>
-            - 수집 항목: 이름, 연락처, 방문희망일시<br>
+            - 수집 항목: 이름, 연락처, 문의사항<br>
             - 보유 기간: 목적 달성 시 즉시 파기 (최대 1년 이내)
           </div>
           <div id="privacy-error" class="error-msg">개인정보 처리방침 동의는 필수사항입니다.</div>
         </div>
 
-        <button type="submit" class="submit-btn">방문예약</button>
+        <button type="submit" class="submit-btn">바로 문의하기</button>
       </form>
+    </section>
+
+    <!-- 네이버 TV 홍보영상 섹션 -->
+    <section class="video-section" aria-label="강릉 우미 린 더 프리미어 홍보영상">
+      <div class="video-card-wrap">
+        <div class="video-card">
+          <div class="video-image-container">
+            <iframe src="https://tv.naver.com/embed/104418754" title="강릉 우미 린 더 프리미어 홍보영상" allow="autoplay; encrypted-media; fullscreen" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="video-card-content">
+            <h3>🎥 강릉 우미 린 더 프리미어 홍보영상</h3>
+            <p>네이버 TV에서 생생한 분양 홍보영상을 감상해 보세요.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- [섹션 1: 평형 스펙 표] -->
@@ -1628,6 +1723,13 @@
     <section class="footer-info-image" aria-label="추가 분양 혜택 정보">
       <img src="gangneung-umilynn-info.png" alt="강릉 우미린 더 프리미어 혜택 안내 배너" loading="lazy">
     </section>
+
+    <!-- 모델하우스 방문예약 CTA -->
+    <section class="visit-cta-section" aria-label="모델하우스 방문예약">
+      <p class="visit-cta-title">더 자세한 상담이 필요하신가요?</p>
+      <p class="visit-cta-sub">모델하우스를 직접 방문하시면 전문 상담사가 상세히 안내해 드립니다</p>
+      <a href="/visit-reserve" class="visit-cta-btn">🏠 모델하우스 방문예약</a>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -1636,6 +1738,11 @@
     <p class="footer-org">시행 : (주)한국토지신탁 &nbsp;|&nbsp; 시공 : 우미건설(주)</p>
     <p class="credit">&lt;웹사이트 제작 배포&gt; 분양광고대행 상호명: 바이럴러스 &nbsp;대표자: 송덕일 &nbsp;연락처: 010-4487-4468</p>
   </footer>
+
+  <div class="floating-cta" aria-label="빠른 상담 신청">
+    <a href="#quick-inquiry" class="floating-inquiry-btn">📝 바로 문의하기</a>
+    <a href="tel:1551-6131" class="call-btn">📞 전화하기</a>
+  </div>
 
   <div class="modal-overlay" id="statusModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" tabindex="-1">
     <div class="modal-box">
@@ -1715,28 +1822,28 @@
 
       const name = document.getElementById('userName').value.trim();
       const phone = document.getElementById('userPhone').value.trim();
-      const visitDate = document.getElementById('visitDate').value.trim() || '없음';
+      const message = document.getElementById('inquiryMessage').value.trim() || '없음';
       const timestamp = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
       const submitBtn = form.querySelector('.submit-btn');
       const originalText = submitBtn.textContent;
 
-      submitBtn.textContent = '예약 처리 중...';
+      submitBtn.textContent = '문의 접수 중...';
       submitBtn.disabled = true;
 
       try {
         const response = await fetch('/api/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, phone, visitDate })
+          body: JSON.stringify({ name, phone, message })
         });
         if (!response.ok) {
           throw new Error(`API responded with status ${response.status}`);
         }
-        openModal('방문예약 완료', '남겨주신 번호로 담당 전문 상담사가 신속히 연락드려 일정을 확정해 드리겠습니다.');
+        openModal('문의 접수 완료', '남겨주신 번호로 담당 전문 상담사가 신속히 연락드리겠습니다.');
         form.reset();
       } catch (error) {
         console.error('Submission error:', error);
-        openModal('방문예약 완료', '고객님의 정보가 접수되었습니다. 담당자가 신속히 연락드리겠습니다.');
+        openModal('문의 접수 완료', '고객님의 정보가 접수되었습니다. 담당자가 신속히 연락드리겠습니다.');
         form.reset();
       } finally {
         submitBtn.textContent = originalText;
@@ -1744,7 +1851,5 @@
       }
     });
   </script>
-  <!-- Roulette Event Popup -->
-  <script src="js/roulette.js" defer></script>
 </body>
 </html>
